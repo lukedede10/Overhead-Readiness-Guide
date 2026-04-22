@@ -158,6 +158,33 @@ h1{
     grid-template-columns:1fr;
   }
 }
+  .export-btn{
+  border:none;
+  background:white;
+  color:#005EB8;
+  font-weight:700;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.export-btn:hover{
+  opacity:0.9;
+}
+  @media print {
+  body{
+    background:white;
+    color:black;
+  }
+
+  .export-btn{
+    display:none;
+  }
+
+  .section{
+    page-break-inside: avoid;
+  }
+}
 </style>
 </head>
 
@@ -166,8 +193,14 @@ h1{
 <div class="container">
 
 <div class="header">
-<h1>Overhead Readiness Guide</h1>
-<p>A step-by-step guide for preparing technicians for overhead work</p>
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+    <div>
+      <h1>Overhead Readiness Guide</h1>
+      <p>A step-by-step guide for preparing technicians for overhead work</p>
+    </div>
+
+    <button onclick="exportPDF()" class="export-btn">Export to PDF</button>
+  </div>
 
 <div class="progress">
 <div id="progressText">Progress: 0%</div>
@@ -404,6 +437,9 @@ function updateProgress(){
 }
 
 checkboxes.forEach(cb => cb.addEventListener("change", updateProgress));
+  function exportPDF(){
+  window.print();
+}
 </script>
 
 </body>
