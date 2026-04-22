@@ -14,6 +14,7 @@
   --text:#0b1220;
   --muted:#64748b;
   --stroke:#d6dde8;
+  --soft:#f8fafc;
 }
 
 body{
@@ -24,7 +25,7 @@ body{
 }
 
 .container{
-  max-width:900px;
+  max-width:1100px;
   margin:auto;
   padding:20px;
 }
@@ -45,7 +46,7 @@ h1{
 
 .progress-bar{
   height:12px;
-  background:#ccc;
+  background:#d1d5db;
   border-radius:10px;
   overflow:hidden;
 }
@@ -57,25 +58,36 @@ h1{
   transition:0.3s;
 }
 
+/* SECTION */
+
 .section{
   background:var(--card);
   color:var(--text);
   border-radius:20px;
-  padding:15px;
+  padding:18px;
   margin-top:15px;
 }
 
 .section h2{
-  margin-top:0;
+  margin:0 0 14px;
 }
+
+.section-grid{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap:18px;
+}
+
+/* LEFT */
 
 .checklist{
   list-style:none;
   padding:0;
+  margin:0;
 }
 
 .checklist li{
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 .note{
@@ -83,26 +95,68 @@ h1{
   color:var(--muted);
   margin-top:10px;
 }
-  .notes-box{
-  margin-top:12px;
-  border-top:1px solid var(--stroke);
-  padding-top:10px;
-}
 
-.notes-box label{
-  display:block;
-  font-weight:600;
-  margin-bottom:5px;
+.notes-box{
+  margin-top:15px;
+  border:1px solid var(--stroke);
+  background:var(--soft);
+  border-radius:12px;
+  padding:12px;
 }
 
 .notes-box textarea{
   width:100%;
-  min-height:80px;
-  border-radius:10px;
+  min-height:100px;
+  border-radius:8px;
   border:1px solid var(--stroke);
   padding:8px;
   font-family:inherit;
-  resize:vertical;
+}
+
+/* RIGHT */
+
+.doc-box{
+  border:1px solid var(--stroke);
+  background:var(--soft);
+  border-radius:12px;
+  padding:12px;
+}
+
+.doc-box h3{
+  margin-top:0;
+}
+
+.doc-links{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.doc-links li{
+  margin-bottom:10px;
+}
+
+.doc-links a{
+  display:block;
+  text-decoration:none;
+  color:var(--o2);
+  font-weight:600;
+  border:1px solid var(--stroke);
+  background:white;
+  padding:8px;
+  border-radius:8px;
+}
+
+.doc-links a:hover{
+  border-color:var(--o2);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+  .section-grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -126,35 +180,71 @@ h1{
 <!-- SECTION 1 -->
 <div class="section">
 <h2>1. Getting Started</h2>
+
+<div class="section-grid">
+
+<div>
 <ul class="checklist">
 <li><input type="checkbox"> Shadowing completed</li>
 <li><input type="checkbox"> Technician happy to proceed</li>
 <li><input type="checkbox"> Confident in suitability?</li>
 </ul>
+
 <div class="note">Assess confidence at height, attitude, and safety awareness.</div>
-  <div class="notes-box">
-  <label>Manager Notes / Documentation</label>
-  <textarea class="notes" data-section="section1" placeholder="Add notes, evidence, or key updates here..."></textarea>
+
+<div class="notes-box">
+<textarea placeholder="Manager notes..."></textarea>
+</div>
+</div>
+
+<div class="doc-box">
+<h3>Documentation</h3>
+<ul class="doc-links">
+<li><a href="#">Shadowing checklist</a></li>
+<li><a href="#">Suitability assessment form</a></li>
+</ul>
+</div>
+
 </div>
 </div>
 
 <!-- SECTION 2 -->
 <div class="section">
 <h2>2. Training & Setup</h2>
+
+<div class="section-grid">
+
+<div>
 <ul class="checklist">
 <li><input type="checkbox"> Qualifications confirmed</li>
 <li><input type="checkbox"> NOPS card set up</li>
 <li><input type="checkbox"> Training arranged/completed</li>
 </ul>
-  <div class="notes-box">
-  <label>Manager Notes / Documentation</label>
-  <textarea class="notes" data-section="section1" placeholder="Add notes, evidence, or key updates here..."></textarea>
+
+<div class="notes-box">
+<textarea placeholder="Manager notes..."></textarea>
+</div>
+</div>
+
+<div class="doc-box">
+<h3>Documentation</h3>
+<ul class="doc-links">
+<li><a href="#">Qualification tracker</a></li>
+<li><a href="#">NOPS setup form</a></li>
+<li><a href="#">Training booking sheet</a></li>
+</ul>
+</div>
+
 </div>
 </div>
 
 <!-- SECTION 3 -->
 <div class="section">
 <h2>3. Tooling & Safety</h2>
+
+<div class="section-grid">
+
+<div>
 <ul class="checklist">
 <li><input type="checkbox"> Tooling ordered</li>
 <li><input type="checkbox"> Skywalk helmet available</li>
@@ -162,57 +252,118 @@ h1{
 <li><input type="checkbox"> Ladder checked and logged</li>
 <li><input type="checkbox"> 6-month inspection reminder set</li>
 </ul>
-  <div class="notes-box">
-  <label>Manager Notes / Documentation</label>
-  <textarea class="notes" data-section="section1" placeholder="Add notes, evidence, or key updates here..."></textarea>
+
+<div class="notes-box">
+<textarea placeholder="Manager notes..."></textarea>
+</div>
+</div>
+
+<div class="doc-box">
+<h3>Documentation</h3>
+<ul class="doc-links">
+<li><a href="#">CFO tooling list</a></li>
+<li><a href="#">Harness inspection guide</a></li>
+<li><a href="#">Ladder logging form</a></li>
+</ul>
+</div>
+
 </div>
 </div>
 
 <!-- SECTION 4 -->
 <div class="section">
 <h2>4. First Day</h2>
+
+<div class="section-grid">
+
+<div>
 <ul class="checklist">
 <li><input type="checkbox"> Tooling issued</li>
-<li><input type="checkbox"> PowerPoint completed (LV Brief)</li>
-<li><input type="checkbox"> Overhead Sign-off sheet started</li>
+<li><input type="checkbox"> PowerPoint completed</li>
+<li><input type="checkbox"> Sign-off sheet started</li>
 </ul>
-  <div class="notes-box">
-  <label>Manager Notes / Documentation</label>
-  <textarea class="notes" data-section="section1" placeholder="Add notes, evidence, or key updates here..."></textarea>
+
+<div class="notes-box">
+<textarea placeholder="Manager notes..."></textarea>
+</div>
+</div>
+
+<div class="doc-box">
+<h3>Documentation</h3>
+<ul class="doc-links">
+<li><a href="#">OH PowerPoint</a></li>
+<li><a href="#">Sign-off sheet</a></li>
+</ul>
+</div>
+
 </div>
 </div>
 
 <!-- SECTION 5 -->
 <div class="section">
 <h2>5. Mentoring</h2>
+
+<div class="section-grid">
+
+<div>
 <ul class="checklist">
 <li><input type="checkbox"> Mentor assigned</li>
 <li><input type="checkbox"> Shadowing in progress</li>
 <li><input type="checkbox"> Practice climbs completed</li>
 </ul>
-  <div class="notes-box">
-  <label>Manager Notes / Documentation</label>
-  <textarea class="notes" data-section="section1" placeholder="Add notes, evidence, or key updates here..."></textarea>
+
+<div class="notes-box">
+<textarea placeholder="Manager notes..."></textarea>
+</div>
+</div>
+
+<div class="doc-box">
+<h3>Documentation</h3>
+<ul class="doc-links">
+<li><a href="#">Mentor guidance</a></li>
+<li><a href="#">Climb checklist</a></li>
+</ul>
+</div>
+
 </div>
 </div>
 
 <!-- SECTION 6 -->
 <div class="section">
 <h2>6. Before Solo</h2>
+
+<div class="section-grid">
+
+<div>
 <ul class="checklist">
 <li><input type="checkbox"> Overhead sign-off completed</li>
 <li><input type="checkbox"> Month 1 planned at 50%</li>
 <li><input type="checkbox"> Month 2 planned at 75%</li>
 </ul>
-  <div class="notes-box">
-  <label>Manager Notes / Documentation</label>
-  <textarea class="notes" data-section="section1" placeholder="Add notes, evidence, or key updates here..."></textarea>
+
+<div class="notes-box">
+<textarea placeholder="Manager notes..."></textarea>
+</div>
+</div>
+
+<div class="doc-box">
+<h3>Documentation</h3>
+<ul class="doc-links">
+<li><a href="#">Sign-off criteria</a></li>
+<li><a href="#">Workload planning guide</a></li>
+</ul>
+</div>
+
 </div>
 </div>
 
 <!-- SECTION 7 -->
 <div class="section">
 <h2>7. Ongoing</h2>
+
+<div class="section-grid">
+
+<div>
 <ul class="checklist">
 <li><input type="checkbox"> 6-month harness checks</li>
 <li><input type="checkbox"> 6-month OH re-sign-off</li>
@@ -220,9 +371,20 @@ h1{
 <li><input type="checkbox"> DP changes understood</li>
 <li><input type="checkbox"> Wayleave process understood</li>
 </ul>
-  <div class="notes-box">
-  <label>Manager Notes / Documentation</label>
-  <textarea class="notes" data-section="section1" placeholder="Add notes, evidence, or key updates here..."></textarea>
+
+<div class="notes-box">
+<textarea placeholder="Manager notes..."></textarea>
+</div>
+</div>
+
+<div class="doc-box">
+<h3>Documentation</h3>
+<ul class="doc-links">
+<li><a href="#">Inspection schedule</a></li>
+<li><a href="#">Wayleave process guide</a></li>
+</ul>
+</div>
+
 </div>
 </div>
 
